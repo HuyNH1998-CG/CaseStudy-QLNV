@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Package.FXML.EditScreenController">
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Ten">
+                    <VBox.margin>
+                        <Insets left="375.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="15.0" />
+                    </font></Label>
+                <TextField fx:id="employeeName">
+                    <VBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                    </VBox.margin></TextField>
+                <Label text="List">
+                    <VBox.margin>
+                        <Insets left="375.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="15.0" />
+                    </font></Label>
+                <ListView fx:id="employeeList" prefHeight="200.0" prefWidth="200.0" />
+                <Label text="Index">
+                    <VBox.margin>
+                        <Insets left="375.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="15.0" />
+                    </font></Label>
+                <TextField fx:id="employeeIndex" prefHeight="26.0" prefWidth="600.0">
+                    <VBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                    </VBox.margin></TextField>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <BorderPane prefHeight="116.0" prefWidth="719.0" BorderPane.alignment="CENTER">
+            <bottom>
+                <Button mnemonicParsing="false" onAction="#switchToMain" text="Back" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </bottom>
+            <right>
+                <Button mnemonicParsing="false" onAction="#goToEdit" text="Edit" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets left="100.0" right="200.0" />
+                    </BorderPane.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </right>
+            <left>
+                <Button mnemonicParsing="false" onAction="#search" text="Search" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets left="200.0" right="50.0" />
+                    </BorderPane.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </left>
+        </BorderPane>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="500.0" maxWidth="800.0" minHeight="500.0" minWidth="800.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Package.FXML.EditScreenController">
+   <bottom>
+      <BorderPane prefHeight="100.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane prefHeight="82.0" prefWidth="412.0" BorderPane.alignment="CENTER">
+               <left>
+                  <Button mnemonicParsing="false" onAction="#switchToEditSearch" prefHeight="50.0" prefWidth="100.0" text="Back" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </left>
+               <right>
+                  <Button mnemonicParsing="false" onAction="#edit" prefHeight="50.0" prefWidth="100.0" text="Edit" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </right>
+               <center>
+                  <Button mnemonicParsing="false" onAction="#getInfo" prefHeight="50.0" prefWidth="200.0" text="Get Employee Info" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </center>
+            </BorderPane>
+         </center>
+         <left>
+            <Pane prefHeight="100.0" prefWidth="140.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="100.0" prefWidth="140.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Name">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="name" promptText="Name">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></TextField>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Age">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="age" onKeyTyped="#ageValidator" promptText="Age (numbers)">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></TextField>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Gender">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="gender" onKeyTyped="#genderValidator" promptText="Gender ( nam / nu)">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></TextField>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Phone">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="phone" onKeyTyped="#phoneValidator" promptText="PhoneNumber ( xx-0xxxxxxxxx)">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></TextField>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Email">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="email" onKeyTyped="#emailValidator" promptText="Email">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></TextField>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Salary">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="salary" onKeyTyped="#salaryValidator" promptText="Salary">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></TextField>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Others">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="others" onKeyTyped="#otherValidator" promptText="Others">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin></TextField>
+            <Label prefHeight="24.0" prefWidth="190.0" text="Type">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></Label>
+            <ChoiceBox fx:id="typeBox" onMouseEntered="#setTypeBox" prefWidth="150.0">
+               <VBox.margin>
+                  <Insets left="200.0" />
+               </VBox.margin></ChoiceBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
