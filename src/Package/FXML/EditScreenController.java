@@ -82,10 +82,10 @@ public class EditScreenController {
         salary.setText(String.valueOf(QLNV.CodeGym.get(index).getSalary()));
         if (QLNV.CodeGym.get(index) instanceof NhanVienTuyenSinh) {
             typeBox.setValue("Tuyen Sinh");
-            others.setText(String.valueOf(((NhanVienTuyenSinh) QLNV.CodeGym.get(index)).getRecruitedAmount()));
+            others.setText(String.valueOf(((NhanVienTuyenSinh) QLNV.CodeGym.get(index)).getOthers()));
         } else if (QLNV.CodeGym.get(index) instanceof NhanVienDaoTaoPartTime) {
             typeBox.setValue("Dao Tao Part-Time");
-            others.setText(String.valueOf(((NhanVienDaoTaoPartTime) QLNV.CodeGym.get(index)).getHourWorked()));
+            others.setText(String.valueOf(((NhanVienDaoTaoPartTime) QLNV.CodeGym.get(index)).getOthers()));
         } else {
             typeBox.setValue("Dao Tao Full-Time");
         }

@@ -14,6 +14,7 @@ public class NhanVien implements Serializable {
     private long salary;
     private boolean status = false;
     private long totalSalary;
+    private long others;
 
     public NhanVien(String name, String age, String gender, String sdt, String email, long salary) {
         this.name = name;
@@ -22,6 +23,16 @@ public class NhanVien implements Serializable {
         this.sdt = sdt;
         this.email = email;
         this.salary = salary;
+    }
+
+    public NhanVien(String name, String age, String gender, String sdt, String email, long salary, long others) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.sdt = sdt;
+        this.email = email;
+        this.salary = salary;
+        this.others = others;
     }
 
     public String getName() {
@@ -86,6 +97,22 @@ public class NhanVien implements Serializable {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setTotalSalary(long totalSalary) {
+        this.totalSalary = totalSalary;
+    }
+
+    public long getOthers() {
+        return others;
+    }
+
+    public void setOthers(long others) {
+        this.others = others;
     }
 
     @Override

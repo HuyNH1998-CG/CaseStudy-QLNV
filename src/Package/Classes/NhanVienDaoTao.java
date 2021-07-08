@@ -5,4 +5,7 @@ public class NhanVienDaoTao extends NhanVien {
         super(name, age, gender, sdt, email, salary);
     }
 
+    public NhanVienDaoTao(String name, String age, String gender, String sdt, String email, long salary,long others) {
+        super(name, age, gender, sdt, email, salary, others);
+    }
 }

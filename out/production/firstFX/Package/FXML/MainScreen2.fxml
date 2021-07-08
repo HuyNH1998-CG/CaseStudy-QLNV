@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="541.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Package.FXML.MainScreenControllers">
+    <right>
+        <VBox prefHeight="444.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onAction="#switchToAdd" prefHeight="25.0" prefWidth="100.0" text="Add"/>
+                <Button mnemonicParsing="false" onAction="#switchToRemove" prefHeight="25.0" prefWidth="100.0"
+                        text="Remove"/>
+                <Button mnemonicParsing="false" onAction="#switchToEdit" prefHeight="25.0" prefWidth="100.0"
+                        text="Edit"/>
+                <Button mnemonicParsing="false" onAction="#populate" prefHeight="25.0" prefWidth="100.0" text="Show"/>
+                <Button mnemonicParsing="false" onAction="#switchToSearch" prefHeight="25.0" prefWidth="100.0"
+                        text="Search"/>
+                <Button mnemonicParsing="false" onAction="#sort" prefHeight="25.0" prefWidth="100.0" text="Sort"/>
+                <Button layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#getCurrentUser"
+                        prefHeight="25.0" prefWidth="100.0" text="Show User Info"/>
+                <Button layoutX="10.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchToStatus"
+                        prefHeight="25.0" prefWidth="100.0" text="Set Status"/>
+                <Button mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="100.0" text="Log Out"/>
+            </children>
+        </VBox>
+    </right>
+    <center>
+        <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tableName" prefWidth="75.0" text="Ten"/>
+                <TableColumn fx:id="tableAge" prefWidth="75.0" text="Tuoi"/>
+                <TableColumn fx:id="tableGender" prefWidth="75.0" text="Gioi Tinh"/>
+                <TableColumn fx:id="tablePhone" text="SDT"/>
+                <TableColumn fx:id="tableEmail" minWidth="0.0" prefWidth="70.0" text="Email"/>
+                <TableColumn fx:id="tableSalary" prefWidth="75.0" text="Luong"/>
+                <TableColumn fx:id="tableTotalSal" prefWidth="75.0" text="Tong luong"/>
+                <TableColumn fx:id="tableStatus" prefWidth="75.0" text="Trang thai"/>
+                <TableColumn fx:id="tableOthers" prefWidth="75.0" text="Muc Khac"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

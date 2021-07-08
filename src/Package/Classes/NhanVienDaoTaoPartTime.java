@@ -1,25 +1,16 @@
 package Package.Classes;
 
-public class NhanVienDaoTaoPartTime extends NhanVienDaoTao{
-    public long hourWorked;
+public class NhanVienDaoTaoPartTime extends NhanVienDaoTao {
 
     public NhanVienDaoTaoPartTime(String name, String age, String gender, String sdt, String email, long salary, long hourWorked) {
-        super(name, age, gender, sdt, email, salary);
-        this.hourWorked = hourWorked;
-    }
-
-    public long getHourWorked() {
-        return hourWorked;
-    }
-
-    public void setHourWorked(int hourWorked) {
-        this.hourWorked = hourWorked;
+        super(name, age, gender, sdt, email, salary, hourWorked);
     }
 
     @Override
     public long getTotalSalary() {
-        return getSalary()*getHourWorked();
+        return getSalary() * getOthers();
     }
+
     @Override
     public String toString() {
         return "Nhan Vien Dao Tao Part Time{" +
@@ -29,7 +20,7 @@ public class NhanVienDaoTaoPartTime extends NhanVienDaoTao{
                 ", sdt: " + getSdt() +
                 ", email: " + getEmail() +
                 ", luong: " + getSalary() +
-                ", so gio lam: " + getHourWorked() +
+                ", so gio lam: " + getOthers() +
                 ", tong luong: " + getTotalSalary() +
                 ", tinh trang: " + getStatus() +
                 '}';

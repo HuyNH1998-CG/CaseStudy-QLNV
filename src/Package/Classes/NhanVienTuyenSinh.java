@@ -1,24 +1,16 @@
 package Package.Classes;
 
 public class NhanVienTuyenSinh extends NhanVien {
-    private long recruitedAmount;
+
 
     public NhanVienTuyenSinh(String name, String age, String gender, String sdt, String email, long salary, long recruitedAmount) {
-        super(name, age, gender, sdt, email, salary);
-        this.recruitedAmount = recruitedAmount;
+        super(name, age, gender, sdt, email, salary, recruitedAmount);
     }
 
-    public long getRecruitedAmount() {
-        return recruitedAmount;
-    }
-
-    public void setRecruitedAmount(int recruitedAmount) {
-        this.recruitedAmount = recruitedAmount;
-    }
 
     @Override
     public long getTotalSalary() {
-        return getSalary() * 8 + (getRecruitedAmount() * 10);
+        return getSalary() * 8 + (getOthers() * 10);
     }
 
     @Override
@@ -30,7 +22,7 @@ public class NhanVienTuyenSinh extends NhanVien {
                 ", sdt: " + getSdt() +
                 ", email: " + getEmail() +
                 ", luong: " + getSalary() +
-                ", so luong hoc vien da tuyen : " + getRecruitedAmount() +
+                ", so luong hoc vien da tuyen : " + getOthers() +
                 ", tong luong: " + getTotalSalary() +
                 ", tinh trang: " + getStatus() +
                 '}';

@@ -37,6 +37,7 @@ public class StatusScreenController {
     }
 
     static void showAll(ListView list) {
+        list.getItems().clear();
         for (NhanVien N : QLNV.CodeGym) {
             list.getItems().add(N);
         }
