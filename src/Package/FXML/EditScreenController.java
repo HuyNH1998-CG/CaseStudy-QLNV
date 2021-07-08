@@ -101,7 +101,7 @@ public class EditScreenController {
         NhanVien tempEmployee = createNhanVien(event);
         if (tempEmployee != null) {
             QLNV.CodeGym.set(index, tempEmployee);
-            IOOperator.writeToFile("E:\\firstFX\\src\\Package\\list.txt", QLNV.CodeGym);
+            IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
             m.changeScene("/Package/FXML/MainScreen.fxml");
         }
     }

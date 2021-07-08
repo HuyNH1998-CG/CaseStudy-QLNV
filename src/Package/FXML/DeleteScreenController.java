@@ -24,7 +24,7 @@ public class DeleteScreenController {
     public void delete(ActionEvent event) throws Exception {
         int index = Integer.parseInt(employeeIndex.getText());
         QLNV.CodeGym.remove(index);
-        IOOperator.writeToFile("E:\\firstFX\\src\\Package\\list.txt", QLNV.CodeGym);
+        IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
         switchToDelete(event);
     }
 

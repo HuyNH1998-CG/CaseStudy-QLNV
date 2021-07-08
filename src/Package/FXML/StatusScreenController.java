@@ -48,24 +48,24 @@ public class StatusScreenController {
         for (NhanVien N : QLNV.CodeGym) {
             N.setStatus(false);
         }
-        IOOperator.writeToFile("E:\\firstFX\\src\\Package\\list.txt", QLNV.CodeGym);
+        IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
     }
 
     public void rest(ActionEvent event) {
         QLNV.CodeGym.get(Integer.parseInt(index.getText())).setStatus(false);
-        IOOperator.writeToFile("E:\\firstFX\\src\\Package\\list.txt", QLNV.CodeGym);
+        IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
     }
 
     public void workAll(ActionEvent event) {
         for (NhanVien N : QLNV.CodeGym) {
             N.setStatus(true);
         }
-        IOOperator.writeToFile("E:\\firstFX\\src\\Package\\list.txt", QLNV.CodeGym);
+        IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
     }
 
     public void Work(ActionEvent event) {
         QLNV.CodeGym.get(Integer.parseInt(index.getText())).setStatus(true);
-        IOOperator.writeToFile("E:\\firstFX\\src\\Package\\list.txt", QLNV.CodeGym);
+        IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
     }
 
     @FXML

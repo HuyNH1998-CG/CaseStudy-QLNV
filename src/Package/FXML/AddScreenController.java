@@ -62,7 +62,7 @@ public class AddScreenController {
         NhanVien tempEmployee = createNhanVien(event);
         if (tempEmployee != null) {
             QLNV.CodeGym.add(tempEmployee);
-            IOOperator.writeToFile("E:\\firstFX\\src\\Package\\list.txt", QLNV.CodeGym);
+            IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
             m.changeScene("/Package/FXML/AddScreenConfirm.fxml");
         }
     }
