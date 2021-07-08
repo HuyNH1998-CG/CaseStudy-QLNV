@@ -1,8 +1,11 @@
 package Package.Classes;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Admin implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 123456L;
     private String username;
     private String password;
 

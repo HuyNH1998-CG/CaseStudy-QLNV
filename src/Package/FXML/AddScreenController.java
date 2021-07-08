@@ -75,8 +75,7 @@ public class AddScreenController {
 
             } else if (typeBox.getValue().equals("Tuyen Sinh")){
                 reminder.setStyle("-fx-text-fill: red");
-                reminder.setText("Input amount of student that this worker have recruited \"Others\"");
-
+                reminder.setText("Input amount of student that this worker have recruited into \"Others\"");
             } else {
                 reminder.setText(null);
             }
