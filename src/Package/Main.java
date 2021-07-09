@@ -1,6 +1,8 @@
 package Package;
 
+import Package.FXML.MainScreenControllers;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,6 +26,12 @@ public class Main extends Application {
     }
 
     public void changeScene(String fxml) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource(fxml));
+        stage.getScene().setRoot(parent);
+    }
+
+    public void changeScene2(String fxml) throws IOException {
+        MainScreenControllers m = new MainScreenControllers();
         Parent parent = FXMLLoader.load(getClass().getResource(fxml));
         stage.getScene().setRoot(parent);
     }

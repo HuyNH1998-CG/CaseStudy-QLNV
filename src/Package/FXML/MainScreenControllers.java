@@ -10,11 +10,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class MainScreenControllers {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainScreenControllers implements Initializable {
     private Admin user;
     private final Main m = new Main();
     @FXML
@@ -46,7 +50,7 @@ public class MainScreenControllers {
         return list;
     }
     @FXML
-    private void populate(ActionEvent event) {
+    public void populate(ActionEvent event) {
         tableName.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableAge.setCellValueFactory(new PropertyValueFactory<>("age"));
         tableGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
@@ -102,5 +106,11 @@ public class MainScreenControllers {
         IOOperator.getLoggedUser("src/Package/loggedUser.txt", null);
         m.changeScene("/Package/FXML/LoginScreen.fxml");
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ActionEvent event = new ActionEvent();
+        populate(event);
     }
 }

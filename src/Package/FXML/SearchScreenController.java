@@ -30,6 +30,6 @@ public class SearchScreenController {
 
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
-        m.changeScene("/Package/FXML/MainScreen.fxml");
+        m.changeScene("/Package/FXML/MainScreen2.fxml");
     }
 }

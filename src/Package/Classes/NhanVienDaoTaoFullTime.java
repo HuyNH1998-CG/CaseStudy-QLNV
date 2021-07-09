@@ -3,6 +3,7 @@ package Package.Classes;
 public class NhanVienDaoTaoFullTime extends NhanVienDaoTao{
     public NhanVienDaoTaoFullTime(String name, String age, String gender, String sdt, String email, long salary) {
         super(name, age, gender, sdt, email, salary);
+        this.setOthers(0);
     }
 
     @Override

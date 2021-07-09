@@ -30,7 +30,7 @@ public class DeleteScreenController {
 
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
-        m.changeScene("/Package/FXML/MainScreen.fxml");
+        m.changeScene("/Package/FXML/MainScreen2.fxml");
     }
 
     public void switchToDelete(ActionEvent event) throws Exception {

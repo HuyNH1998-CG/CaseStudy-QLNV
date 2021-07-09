@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class LoginController {
     private ArrayList<Admin> accountList = new ArrayList<>();
-    private final Main m = new Main();
-
+    private Main m = new Main();
+    private MainScreenControllers n = new MainScreenControllers();
     @FXML
     TextField username;
     @FXML
@@ -45,7 +45,7 @@ public class LoginController {
         for (Admin admin : accountList){
             if(admin.getUsername().equals(username.getText())&&admin.getPassword().equals(password.getText())){
                 IOOperator.getLoggedUser("src/Package/loggedUser.txt",admin);
-                m.changeScene("/Package/FXML/MainScreen.fxml");
+                m.changeScene2("/Package/FXML/MainScreen2.fxml");
             } else {
                 errMess.setStyle("-fx-text-fill: red");
                 errMess.setText("Wrong Username or Password");

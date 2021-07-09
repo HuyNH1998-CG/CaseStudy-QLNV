@@ -49,7 +49,7 @@ public class AddScreenController {
 
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
-        m.changeScene("/Package/FXML/MainScreen.fxml");
+        m.changeScene("/Package/FXML/MainScreen2.fxml");
     }
 
     @FXML
@@ -102,12 +102,12 @@ public class AddScreenController {
 
     @FXML
     public void phoneValidator(KeyEvent event) {
-        EditScreenController.isValid(phone);
+        EditController.isValid(phone);
     }
 
     @FXML
     public void emailValidator(KeyEvent event) {
-        EditScreenController.isMailValid(email);
+        EditController.isMailValid(email);
     }
 
     @FXML
