@@ -15,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -44,11 +45,12 @@ public class MainScreenControllers implements Initializable {
 
     ObservableList<NhanVien> list = getList();
 
-    private ObservableList<NhanVien> getList(){
+    private ObservableList<NhanVien> getList() {
         ObservableList<NhanVien> list = FXCollections.observableArrayList();
         list.addAll(QLNV.CodeGym);
         return list;
     }
+
     @FXML
     public void populate(ActionEvent event) {
         tableName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -89,6 +91,16 @@ public class MainScreenControllers implements Initializable {
         m.changeScene("/Package/FXML/StatusScreen.fxml");
     }
 
+    @FXML
+    public void addNewAdmin(ActionEvent event) throws Exception {
+        m.changeScene("/Package/FXML/Registration.fxml");
+    }
+
+    @FXML
+    public void removeAdminAccount(ActionEvent event) throws Exception {
+        m.changeScene("/Package/FXML/DeleteUser.fxml");
+    }
+
     public void sort(ActionEvent event) {
         QLNV.sortByName();
         table.getItems().clear();
@@ -98,8 +110,13 @@ public class MainScreenControllers implements Initializable {
     }
 
     public void getCurrentUser() {
-        user = IOOperator.readLoggedUser("src/Package/loggedUser.txt");
+        try {
+            m.changeScene("/Package/FXML/UserInfo.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     public void logOut(ActionEvent event) throws Exception {
         user = null;

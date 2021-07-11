@@ -15,40 +15,34 @@ import java.util.ArrayList;
 public class LoginController {
     private ArrayList<Admin> accountList = new ArrayList<>();
     private Main m = new Main();
-    private MainScreenControllers n = new MainScreenControllers();
     @FXML
     TextField username;
     @FXML
     PasswordField password;
     @FXML
     Label errMess;
+    private final String admin = "admin";
+    private final String adminPassword = "admin@9152";
 
-
-    public void register(ActionEvent event){
-        accountList = IOOperator.readAdminUser("src/Package/user.txt");
-        for(Admin admin : accountList){
-            if(admin.getUsername().equals(username.getText())){
-                errMess.setText("User Already Exist");
-                return;
-            }
-        }
-        accountList.add(new Admin(username.getText(),password.getText()));
-        IOOperator.writeAdmin("src/Package/user.txt",accountList);
-    }
     public void login(ActionEvent event) throws IOException {
         if (username.getText().equals("") || password.getText().equals("")){
             errMess.setStyle("-fx-text-fill: red");
             errMess.setText("User not found or invalid data");
             return;
         }
-        accountList = IOOperator.readAdminUser("src/Package/user.txt");
-        for (Admin admin : accountList){
-            if(admin.getUsername().equals(username.getText())&&admin.getPassword().equals(password.getText())){
-                IOOperator.getLoggedUser("src/Package/loggedUser.txt",admin);
-                m.changeScene2("/Package/FXML/MainScreen2.fxml");
-            } else {
-                errMess.setStyle("-fx-text-fill: red");
-                errMess.setText("Wrong Username or Password");
+        if(username.getText().equalsIgnoreCase(admin) && password.getText().equals(adminPassword)){
+            IOOperator.getLoggedUser("src/Package/loggedUser.txt",new Admin(admin,adminPassword,"admin","admin"));
+            m.changeScene2("/Package/FXML/MainScreen2.fxml");
+        }else {
+            accountList = IOOperator.readAdminUser("src/Package/user.txt");
+            for (Admin admin : accountList){
+                if(admin.getUsername().equals(username.getText())&&admin.getPassword().equals(password.getText())){
+                    IOOperator.getLoggedUser("src/Package/loggedUser.txt",admin);
+                    m.changeScene2("/Package/FXML/MainScreen2.fxml");
+                } else {
+                    errMess.setStyle("-fx-text-fill: red");
+                    errMess.setText("Wrong Username or Password");
+                }
             }
         }
     }

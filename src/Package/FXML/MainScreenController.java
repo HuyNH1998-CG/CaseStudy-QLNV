@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
+import java.io.IOException;
+
 public class MainScreenController {
     private Admin user;
     private final Main m = new Main();
@@ -58,9 +60,12 @@ public class MainScreenController {
     }
 
     public void getCurrentUser() {
-        user = IOOperator.readLoggedUser("src/Package/loggedUser.txt");
-        listView.getItems().clear();
-        listView.getItems().add(user.display());
+        try {
+            m.changeScene("/Package/FXML/UserInfo.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void logOut(ActionEvent event) throws Exception {
