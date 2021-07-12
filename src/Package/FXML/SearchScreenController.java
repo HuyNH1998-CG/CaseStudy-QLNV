@@ -1,6 +1,8 @@
 package Package.FXML;
 
 
+import Package.Classes.Admin;
+import Package.IOOperator;
 import Package.Main;
 import Package.QLNV;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ public class SearchScreenController {
     TextField employeeName;
     @FXML
     ListView employeeList;
+    private Admin user;
     public void search(ActionEvent event) {
         searchEmployee(employeeName, employeeList);
     }
@@ -30,6 +33,11 @@ public class SearchScreenController {
 
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
-        m.changeScene("/Package/FXML/MainScreen2.fxml");
+        user = IOOperator.readLoggedUser("src/Package/loggedUser.txt");
+        if (user.getName().equalsIgnoreCase("admin")) {
+            m.changeScene("/Package/FXML/MainScreen.fxml");
+        }else {
+            m.changeScene("/Package/FXML/MainScreen2.fxml");
+        }
     }
 }

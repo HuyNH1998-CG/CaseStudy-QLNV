@@ -5,24 +5,62 @@ import Package.Classes.NhanVien;
 import Package.IOOperator;
 import Package.Main;
 import Package.QLNV;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class MainScreenController {
+public class MainScreenController implements Initializable {
     private Admin user;
     private final Main m = new Main();
     @FXML
-    ListView listView = new ListView();
-
+    TableView<NhanVien> table = new TableView<>();
     @FXML
-    private void populate(ActionEvent event) {
-        listView.getItems().clear();
-        for (NhanVien N : QLNV.CodeGym) {
-            listView.getItems().add(N);
-        }
+    TableColumn<NhanVien, String> tableName = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, String> tableAge = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, String> tableGender = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, String> tablePhone = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, String> tableEmail = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, Long> tableSalary = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, Long> tableTotalSal = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, Boolean> tableStatus = new TableColumn<>();
+    @FXML
+    TableColumn<NhanVien, Long> tableOthers = new TableColumn<>();
+
+    ObservableList<NhanVien> list = getList();
+
+    private ObservableList<NhanVien> getList() {
+        ObservableList<NhanVien> list = FXCollections.observableArrayList();
+        list.addAll(QLNV.CodeGym);
+        return list;
+    }
+    @FXML
+    public void populate(ActionEvent event) {
+        tableName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tableAge.setCellValueFactory(new PropertyValueFactory<>("age"));
+        tableGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        tablePhone.setCellValueFactory(new PropertyValueFactory<>("sdt"));
+        tableEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tableSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        tableTotalSal.setCellValueFactory(new PropertyValueFactory<>("totalSalary"));
+        tableStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        tableOthers.setCellValueFactory(new PropertyValueFactory<>("others"));
+        table.setItems(list);
     }
 
 
@@ -53,9 +91,9 @@ public class MainScreenController {
 
     public void sort(ActionEvent event) {
         QLNV.sortByName();
-        listView.getItems().clear();
+        table.getItems().clear();
         for (NhanVien N : QLNV.CodeGym) {
-            listView.getItems().add(N);
+            table.getItems().add(N);
         }
     }
 
@@ -73,5 +111,11 @@ public class MainScreenController {
         IOOperator.getLoggedUser("src/Package/loggedUser.txt", null);
         m.changeScene("/Package/FXML/LoginScreen.fxml");
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ActionEvent event = new ActionEvent();
+        populate(event);
     }
 }

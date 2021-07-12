@@ -1,9 +1,6 @@
 package Package.FXML;
 
-import Package.Classes.NhanVien;
-import Package.Classes.NhanVienDaoTaoFullTime;
-import Package.Classes.NhanVienDaoTaoPartTime;
-import Package.Classes.NhanVienTuyenSinh;
+import Package.Classes.*;
 import Package.IOOperator;
 import Package.Main;
 import Package.QLNV;
@@ -21,7 +18,7 @@ import java.io.IOException;
 
 public class AddScreenController {
     private final Main m = new Main();
-
+    private Admin user;
     @FXML
     TextField name;
     @FXML
@@ -49,7 +46,12 @@ public class AddScreenController {
 
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
-        m.changeScene("/Package/FXML/MainScreen2.fxml");
+        user = IOOperator.readLoggedUser("src/Package/loggedUser.txt");
+        if (user.getName().equalsIgnoreCase("admin")) {
+            m.changeScene("/Package/FXML/MainScreen.fxml");
+        }else {
+            m.changeScene("/Package/FXML/MainScreen2.fxml");
+        }
     }
 
     @FXML

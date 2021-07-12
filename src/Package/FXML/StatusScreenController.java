@@ -1,5 +1,6 @@
 package Package.FXML;
 
+import Package.Classes.Admin;
 import Package.IOOperator;
 import Package.Classes.NhanVien;
 import Package.Main;
@@ -17,6 +18,8 @@ public class StatusScreenController {
     TextField index;
     @FXML
     ListView list;
+
+    private Admin user;
 
     public void search(ActionEvent event) {
         searchEmployee(name, list);
@@ -70,6 +73,11 @@ public class StatusScreenController {
 
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
-        m.changeScene("/Package/FXML/MainScreen2.fxml");
+        user = IOOperator.readLoggedUser("src/Package/loggedUser.txt");
+        if (user.getName().equalsIgnoreCase("admin")) {
+            m.changeScene("/Package/FXML/MainScreen.fxml");
+        }else {
+            m.changeScene("/Package/FXML/MainScreen2.fxml");
+        }
     }
 }

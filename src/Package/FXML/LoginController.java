@@ -38,7 +38,7 @@ public class LoginController {
             for (Admin admin : accountList){
                 if(admin.getUsername().equals(username.getText())&&admin.getPassword().equals(password.getText())){
                     IOOperator.getLoggedUser("src/Package/loggedUser.txt",admin);
-                    m.changeScene2("/Package/FXML/MainScreen2.fxml");
+                    m.changeScene2("/Package/FXML/MainScreen.fxml");
                 } else {
                     errMess.setStyle("-fx-text-fill: red");
                     errMess.setText("Wrong Username or Password");

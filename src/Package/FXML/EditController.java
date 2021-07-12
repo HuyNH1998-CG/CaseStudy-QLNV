@@ -1,5 +1,6 @@
 package Package.FXML;
 
+import Package.Classes.Admin;
 import Package.Classes.NhanVien;
 import Package.Classes.NhanVienDaoTaoPartTime;
 import Package.Classes.NhanVienTuyenSinh;
@@ -15,6 +16,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import Package.IOOperator;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,6 +44,7 @@ public class EditController implements Initializable {
     @FXML
     ChoiceBox<String> typeBox;
     ObservableList<String> choices = FXCollections.observableArrayList("Dao Tao Full-Time", "Dao Tao Part-Time", "Tuyen Sinh");
+    private Admin user;
 
     @FXML
     public void setTypeBox(MouseEvent event) {

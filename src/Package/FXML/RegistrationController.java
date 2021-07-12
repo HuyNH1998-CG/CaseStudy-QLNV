@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 import java.util.ArrayList;
 
@@ -25,8 +26,14 @@ public class RegistrationController {
     @FXML
     Label error;
 
+
     public void register(ActionEvent event) throws Exception {
-        accountList = IOOperator.readAdminUser("src/Package/user.txt");
+        readAccount();
+        if (username.getText().equalsIgnoreCase("admin")){
+            error.setStyle("-fx-text-fill: Red");
+            error.setText("user cannot be named admin");
+            return;
+        }
         for (Admin admin : accountList) {
             if (admin.getUsername().equals(username.getText())) {
                 error.setStyle("-fx-text-fill: Red");
@@ -38,6 +45,11 @@ public class RegistrationController {
         IOOperator.writeAdmin("src/Package/user.txt", accountList);
         switchToMain(event);
     }
+
+    private void readAccount() {
+        accountList = IOOperator.readAdminUser("src/Package/user.txt");
+    }
+
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
         m.changeScene("/Package/FXML/MainScreen2.fxml");

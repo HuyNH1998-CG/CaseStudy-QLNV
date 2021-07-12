@@ -1,10 +1,12 @@
 package Package.FXML;
 
+import Package.Classes.Admin;
 import Package.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import Package.IOOperator;
 
 public class EditScreenController {
     private final Main m = new Main();
@@ -14,14 +16,19 @@ public class EditScreenController {
     ListView employeeList;
     @FXML
     TextField employeeIndex;
-
+    private Admin user;
     @FXML
     static int index;
 
 
     @FXML
     public void switchToMain(ActionEvent event) throws Exception {
-        m.changeScene("/Package/FXML/MainScreen2.fxml");
+        user = IOOperator.readLoggedUser("src/Package/loggedUser.txt");
+        if (user.getName().equalsIgnoreCase("admin")) {
+            m.changeScene("/Package/FXML/MainScreen.fxml");
+        }else {
+            m.changeScene("/Package/FXML/MainScreen2.fxml");
+        }
     }
 
     @FXML
