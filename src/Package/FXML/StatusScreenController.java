@@ -79,9 +79,9 @@ public class StatusScreenController {
     public void switchToMain(ActionEvent event) throws Exception {
         user = IOOperator.readLoggedUser("src/Package/loggedUser.txt");
         if (user.getName().equalsIgnoreCase("admin")) {
-            m.changeScene("/Package/FXML/MainScreen.fxml");
-        }else {
             m.changeScene("/Package/FXML/MainScreen2.fxml");
+        }else {
+            m.changeScene("/Package/FXML/MainScreen.fxml");
         }
     }
 }
