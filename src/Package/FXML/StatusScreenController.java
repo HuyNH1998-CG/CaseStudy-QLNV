@@ -52,11 +52,13 @@ public class StatusScreenController {
             N.setStatus(false);
         }
         IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
+        showAll(event);
     }
 
     public void rest(ActionEvent event) {
         QLNV.CodeGym.get(Integer.parseInt(index.getText())).setStatus(false);
         IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
+        showAll(event);
     }
 
     public void workAll(ActionEvent event) {
@@ -64,11 +66,13 @@ public class StatusScreenController {
             N.setStatus(true);
         }
         IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
+        showAll(event);
     }
 
     public void Work(ActionEvent event) {
         QLNV.CodeGym.get(Integer.parseInt(index.getText())).setStatus(true);
         IOOperator.writeToFile("src/Package/list.txt", QLNV.CodeGym);
+        showAll(event);
     }
 
     @FXML
